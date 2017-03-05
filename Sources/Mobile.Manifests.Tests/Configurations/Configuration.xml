@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Node1 Attribute1="AValue1">
+    <Node2>NValue2</Node2>
+    <Node3>NValue3</Node3>
+</Node1>
