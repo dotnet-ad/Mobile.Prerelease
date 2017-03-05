@@ -16,7 +16,6 @@
     <packageTypes>
         <packageType name="DotnetCliTool" />
     </packageTypes>
-    </metadata>
   </metadata>
    <files>
      <file src="..\Sources\Mobile.Manifests.Cli\bin\Release\CommandLine.dll" target="tools\CommandLine.dll" />
