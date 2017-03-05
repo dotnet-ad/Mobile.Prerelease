@@ -13,9 +13,6 @@
     <description>Prepare your mobile release (BundleId, Name, Version, ...) from a simple CLI.</description>
     <copyright>Copyright 2017</copyright>
     <tags>manifest android ios uwp release package version</tags>
-    <packageTypes>
-        <packageType name="DotnetCliTool" />
-    </packageTypes>
   </metadata>
    <files>
      <file src="..\Sources\Mobile.Manifests.Cli\bin\Release\CommandLine.dll" target="tools\CommandLine.dll" />
