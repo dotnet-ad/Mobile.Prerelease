@@ -48,17 +48,17 @@
 
 		public string BundleIdentifier
 		{
-			get => (plist[CFBundleIdentifier] as StringNode).Value;
-			set => (plist[CFBundleIdentifier] as StringNode).Value = value;
+			get => GetValue(CFBundleIdentifier);
+			set => SetValue(CFBundleIdentifier, value);
 		}
 
 		public string DisplayName
 		{
-			get => (plist[CFBundleName] as StringNode).Value;
+			get => GetValue(CFBundleName);
 			set
 			{
-				(plist[CFBundleName] as StringNode).Value = value;
-				(plist[CFBundleDisplayName] as StringNode).Value = value;
+				SetValue(CFBundleName, value);
+				SetValue(CFBundleDisplayName, value);
 			}
 		}
 
@@ -66,8 +66,8 @@
 		{
 			get
 			{
-				var shortVersion = (plist[CFBundleShortVersionString] as StringNode).Value;
-				var bundleVersion = (plist[CFBundleVersion] as StringNode).Value;
+				var shortVersion = GetValue(CFBundleShortVersionString);
+				var bundleVersion = GetValue(CFBundleVersion);
 
 				var shortNumbers = shortVersion.Split('.').Select(x => int.Parse(x));
 				var bundleNumbers = bundleVersion.Split('.').Select(x => int.Parse(x));
@@ -77,8 +77,8 @@
 			}
 			set
 			{
-				(plist[CFBundleShortVersionString] as StringNode).Value = $"{value.Major}.{value.Minor}.{value.Build}";
-				(plist[CFBundleVersion] as StringNode).Value = $"{value.Revision}";
+				SetValue(CFBundleShortVersionString, $"{value.Major}.{value.Minor}.{value.Build}");
+				SetValue(CFBundleVersion, $"{value.Revision}");
 			}
 		}
 
@@ -86,7 +86,7 @@
 		{
 			get
 			{
-				var iconset = (plist[XSAppIconAssets] as StringNode).Value;
+				var iconset = GetValue(XSAppIconAssets);
 				var dir = Directory.GetParent(iconset);
 				return dir.GetFiles().Where(f => f.Extension == ".png").Select(x => x.FullName);
 			}
@@ -104,6 +104,24 @@
 			{
 				PList.Save(this.plist, stream, PListFormat.Xml);
 			}
+		}
+
+		private string GetValue(string key)
+		{
+			PNode result = null;
+			if (this.plist.TryGetValue(key, out result)) return (result as StringNode).Value;
+			return null;
+		}
+
+		private void SetValue(string key, string value)
+		{
+			PNode result = null;
+			if (this.plist.TryGetValue(key, out result))
+			{
+				(result as StringNode).Value = value;
+				return;
+			}
+			this.plist[key] = new StringNode(value);
 		}
 
 		#endregion
