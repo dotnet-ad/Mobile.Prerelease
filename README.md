@@ -2,6 +2,12 @@
 
 Prepare your mobile release (*BundleId, Name, Version, ...*) from a simple CLI.
 
+## Install
+
+**Command Line Tool**
+
+[![NuGet](https://img.shields.io/nuget/v/Mobile.Prerelease.Cli.svg?label=NuGet)](https://www.nuget.org/packages/Mobile.Prerelease.Cli/) or [releases](https://github.com/aloisdeniel/Mobile.Prerelease/releases)
+
 ## Quickstart
 
 ![manifests](Documentation/manifest-update.png)
@@ -34,8 +40,8 @@ Prepare your mobile release (*BundleId, Name, Version, ...*) from a simple CLI.
 	* `--BundleIdentifier` `-b` [*string*] : the new bundle identifier of the application.
 * command `configuration`
 	* `--File` `-f` [*string*] **(required)** : path to the configuration file. 
-	* `--Format` `-p` [`"Json"`|`"Xml"`] : dormat of the given configuration file. Is deducted from path if not precised.
-	* `--Values` `-v` ["`(Path)=(Value)" "(Path)=(Value)" ...`] : the new values to replace original ones.
+	* `--Format` `-o` [`"Json"`|`"Xml"`] : dormat of the given configuration file. Is deducted from path if not precised.
+	* `--Values` `-v` ["`(Path)=(Value)" "(Path)=(Value)" ...`] : the new values that will replace the original ones. For JSON, the path format should be [JPath](http://www.newtonsoft.com/json/help/html/SelectToken.htm). For XML, the path format should be [XPath](https://msdn.microsoft.com/fr-fr/library/bb341675(v=vs.110).aspx).
 
 
 ## Roadmap / Ideas

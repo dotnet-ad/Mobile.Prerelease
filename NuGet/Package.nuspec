@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Mobile.Prerelease.Cli</id>
+    <version>$version$</version>
+    <title>Mobile.Prerelease.Cli</title>
+    <authors>Aloïs Deniel</authors>
+    <owners>Aloïs Deniel</owners>
+    <licenseUrl>https://github.com/aloisdeniel/Mobile.Prerelease/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/aloisdeniel/Mobile.Prerelease/</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/aloisdeniel/Mobile.Prerelease/master/Documentation/Logo.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Prepare your mobile release (BundleId, Name, Version, ...) from a simple CLI.</description>
+    <copyright>Copyright 2017</copyright>
+    <tags>manifest android ios uwp release package version</tags>
+    <packageTypes>
+        <packageType name="DotnetCliTool" />
+    </packageTypes>
+    </metadata>
+  </metadata>
+   <files>
+     <file src="..\Sources\Mobile.Manifests.Cli\bin\Release\CommandLine.dll" target="tools\CommandLine.dll" />
+     <file src="..\Sources\Mobile.Manifests.Cli\bin\Release\Mobile.Prerelease.Cli.exe" target="tools\Mobile.Prerelease.Cli.exe" />
+     <file src="..\Sources\Mobile.Manifests.Cli\bin\Release\Mobile.Prerelease.dll" target="tools\Mobile.Prerelease.dll" />
+     <file src="..\Sources\Mobile.Manifests.Cli\bin\Release\Newtonsoft.Json.dll" target="tools\Newtonsoft.Json.dll" />
+     <file src="..\Sources\Mobile.Manifests.Cli\bin\Release\NGraphics.dll" target="tools\NGraphics.dll" />
+     <file src="..\Sources\Mobile.Manifests.Cli\bin\Release\NGraphics.Net.dll" target="tools\NGraphics.Net.dll" />
+     <file src="..\Sources\Mobile.Manifests.Cli\bin\Release\PListNet.dll" target="tools\PListNet.dll" />
+   </files>
+</package>
